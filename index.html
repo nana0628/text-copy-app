@@ -1,54 +1,48 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text Copy</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Copy</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <header class="header">
-      <div>
-        <h1>Text Copy</h1>
-      </div>
-      <div class="header-actions">
-        <button id="addBtn" class="primary-btn">＋ テキストを保存</button>
-        <label class="csv-btn">
-          CSVを読み込む
-          <input id="csvInput" type="file" accept=".csv,text/csv" hidden>
-        </label>
-      </div>
-    </header>
-
-    <section id="editor" class="editor hidden">
-      <textarea id="textInput" placeholder="保存するテキストを入力してください"></textarea>
-      <div class="editor-bottom">
-        <label class="star-check">
-          <input id="starInput" type="checkbox">
-          <span>★</span> お気に入り
-        </label>
-        <div>
-          <button id="cancelBtn" class="secondary-btn">キャンセル</button>
-          <button id="saveBtn" class="primary-btn">保存</button>
-        </div>
-      </div>
-    </section>
-
-    <div class="toolbar">
-      <span id="count">0件</span>
-      <button id="clearBtn" class="text-btn">すべて削除</button>
-    </div>
-
-    <main id="list" class="list"></main>
-    <div id="empty" class="empty">
-      <div class="empty-icon">✎</div>
-      <p>保存されたテキストはありません。</p>
-      <span>「＋ テキストを保存」から追加できます。</span>
-    </div>
+<div class="app">
+<header class="header">
+  <div><h1>Text Copy</h1><p>保存したテキストをすぐにコピー</p></div>
+  <div class="header-actions">
+    <button id="addBtn" class="primary-btn">＋ テキストを保存</button>
+    <label class="csv-btn">CSVを読み込む<input id="csvInput" type="file" accept=".csv,text/csv" hidden></label>
   </div>
+</header>
 
-  <div id="toast" class="toast">コピーしました</div>
-  <script src="script.js"></script>
+<section id="editor" class="editor hidden">
+  <label class="field-label">コピーするテキスト <span class="required">必須</span></label>
+  <textarea id="textInput" placeholder="コピーしたいテキストを入力してください"></textarea>
+  <label class="field-label">メモ <span class="optional">任意</span></label>
+  <textarea id="memoInput" class="memo-input" placeholder="補足やメモを入力できます"></textarea>
+  <div class="editor-bottom">
+    <label class="star-check"><input id="starInput" type="checkbox"><span>★</span> お気に入り</label>
+    <div><button id="cancelBtn" class="secondary-btn">キャンセル</button><button id="saveBtn" class="primary-btn">保存</button></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>★ お気に入り</h2><span id="favoriteCount">0件</span></div>
+  <div id="favoritesList" class="list"></div>
+  <div id="favoriteEmpty" class="section-empty">お気に入りに登録したテキストはありません。</div>
+</section>
+
+<section class="section all-section">
+  <div class="section-title">
+    <h2>すべてのテキスト</h2>
+    <div><span id="count">0件</span><button id="clearBtn" class="text-btn">すべて削除</button></div>
+  </div>
+  <div id="list" class="list"></div>
+  <div id="empty" class="section-empty">保存されたテキストはありません。</div>
+</section>
+</div>
+<div id="toast" class="toast">コピーしました</div>
+<script src="script.js"></script>
 </body>
 </html>
