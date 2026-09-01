@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Copy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div>
+        <h1>Text Copy</h1>
+      </div>
+      <div class="header-actions">
+        <button id="addBtn" class="primary-btn">＋ テキストを保存</button>
+        <label class="csv-btn">
+          CSVを読み込む
+          <input id="csvInput" type="file" accept=".csv,text/csv" hidden>
+        </label>
+      </div>
+    </header>
+
+    <section id="editor" class="editor hidden">
+      <textarea id="textInput" placeholder="保存するテキストを入力してください"></textarea>
+      <div class="editor-bottom">
+        <label class="star-check">
+          <input id="starInput" type="checkbox">
+          <span>★</span> お気に入り
+        </label>
+        <div>
+          <button id="cancelBtn" class="secondary-btn">キャンセル</button>
+          <button id="saveBtn" class="primary-btn">保存</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <span id="count">0件</span>
+      <button id="clearBtn" class="text-btn">すべて削除</button>
+    </div>
+
+    <main id="list" class="list"></main>
+    <div id="empty" class="empty">
+      <div class="empty-icon">✎</div>
+      <p>保存されたテキストはありません。</p>
+      <span>「＋ テキストを保存」から追加できます。</span>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">コピーしました</div>
+  <script src="script.js"></script>
+</body>
+</html>
